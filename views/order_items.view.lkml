@@ -121,8 +121,7 @@ view: order_items {
 #  }
 
   measure: total_returned {
-    type: sum
-    sql: ${status};;
+    type: count
     filters: [order_items.status: "Returned"]
   }
 
