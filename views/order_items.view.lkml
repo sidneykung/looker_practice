@@ -117,7 +117,7 @@ view: order_items {
 #  measure: total_gross_revenue {
 #    type: sum
 #    sql: ${revenue} ;;
-#    filters: [order_items.status: "complete, processing, shipped"]
+#    filters: [order_items.status: "Complete, Processing, Shipped"]
 #  }
 
   measure: total_returned {
@@ -125,11 +125,15 @@ view: order_items {
     filters: [order_items.status: "Returned"]
   }
 
-#  measure: total_sold {
-#    type: count
-#    sql: ${status} ;;
-#    filters: [order_items.status: "complete, processing, shipped"]
-#  }
+  measure: total_sold {
+    type: count
+    filters: [order_items.status: "complete, processing, shipped"]
+  }
+
+  measure: return_rate {
+    type: number
+    sql: ${total_returned} / ${total_sold} ;;
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
