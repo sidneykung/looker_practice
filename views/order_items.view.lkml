@@ -127,7 +127,7 @@ view: order_items {
 
   measure: total_sold {
     type: count
-    filters: [order_items.status: "complete, processing, shipped"]
+    filters: [order_items.status: "Complete, Processing, Shipped"]
   }
 
   measure: return_rate {
