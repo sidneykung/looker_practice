@@ -132,6 +132,7 @@ view: order_items {
 
   measure: return_rate {
     type: number
+    value_format_name: percent_2
     sql: ${total_returned} / ${total_sold} ;;
   }
 
