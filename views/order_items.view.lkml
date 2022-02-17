@@ -99,11 +99,13 @@ view: order_items {
 
   measure: total_sale_price {
     type: sum
+    value_format_name: usd
     sql: ${TABLE}."SALE_PRICE" ;;
   }
 
   measure: avg_sale_price {
     type: average
+    value_format_name: usd
     sql: ${TABLE}."SALE_PRICE" ;;
   }
 
