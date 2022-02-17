@@ -109,6 +109,29 @@ view: order_items {
     sql: ${TABLE}."SALE_PRICE" ;;
   }
 
+  measure: revenue {
+    type: number
+    sql: ${order_items.count}*${avg_sale_price} ;;
+  }
+
+#  measure: total_gross_revenue {
+#    type: sum
+#    sql: ${revenue} ;;
+#    filters: [order_items.status: "complete, processing, shipped"]
+#  }
+
+  measure: total_returned {
+    type: count_distinct
+    sql: ${status ;;
+    filters: [order_items.status: "returned"]
+  }
+
+#  measure: total_sold {
+#    type: count
+#    sql: ${status} ;;
+#    filters: [order_items.status: "complete, processing, shipped"]
+#  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

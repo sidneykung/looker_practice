@@ -87,4 +87,17 @@ view: inventory_items {
     type: count
     drill_fields: [id, product_name, products.id, products.name, order_items.count]
   }
+
+  measure: total_cost {
+    type: sum
+    value_format_name: usd
+    sql: ${TABLE}."COST" ;;
+  }
+
+  measure: avg_total_cost {
+    type: average
+    value_format_name: usd
+    sql: ${TABLE}."COST" ;;
+  }
+
 }
